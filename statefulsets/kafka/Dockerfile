@@ -10,8 +10,8 @@ ARG KAFKA_DIST=kafka_2.11-2.1.0
 RUN set -x \
     && apt-get update \
     && apt-get install -y openjdk-8-jre-headless wget \
-	&& wget -q "https://mirrors.tuna.tsinghua.edu.cn/apache/kafka/$KAFKA_VERSION/$KAFKA_DIST.tgz" \
-    && wget -q "https://mirrors.tuna.tsinghua.edu.cn/apache/kafka/$KAFKA_VERSION/$KAFKA_DIST.tgz.asc" \
+	&& wget -q "http://www.apache.org/dist/kafka/$KAFKA_VERSION/$KAFKA_DIST.tgz" \
+    && wget -q "http://www.apache.org/dist/kafka/$KAFKA_VERSION/$KAFKA_DIST.tgz.asc" \
     && wget -q "http://kafka.apache.org/KEYS" \
     && export GNUPGHOME="$(mktemp -d)" \
     && gpg --import KEYS \
