@@ -5,13 +5,13 @@ JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 \
 KAFKA_HOME=/opt/kafka \
 PATH=$PATH:/opt/kafka/bin
 
-ARG KAFKA_VERSION=1.0.2
-ARG KAFKA_DIST=kafka_2.11-1.0.2
+ARG KAFKA_VERSION=2.1.0
+ARG KAFKA_DIST=kafka_2.11-2.1.0
 RUN set -x \
     && apt-get update \
     && apt-get install -y openjdk-8-jre-headless wget \
-	&& wget -q "http://www.apache.org/dist/kafka/$KAFKA_VERSION/$KAFKA_DIST.tgz" \
-    && wget -q "http://www.apache.org/dist/kafka/$KAFKA_VERSION/$KAFKA_DIST.tgz.asc" \
+	&& wget -q "https://mirrors.tuna.tsinghua.edu.cn/apache/kafka/$KAFKA_VERSION/$KAFKA_DIST.tgz" \
+    && wget -q "https://mirrors.tuna.tsinghua.edu.cn/apache/kafka/$KAFKA_VERSION/$KAFKA_DIST.tgz.asc" \
     && wget -q "http://kafka.apache.org/KEYS" \
     && export GNUPGHOME="$(mktemp -d)" \
     && gpg --import KEYS \
